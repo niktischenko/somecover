@@ -6,7 +6,7 @@ Build-Depends: debhelper (>= 5), libqt4-dev
 Standards-Version: 3.7.2
 XSBC-Homepage: http://github.com/niktischenko/someplayer
 
-Package: someplayer
+Package: somecover
 Architecture: armel
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Album art manager for SomePlayer and TPlayer
