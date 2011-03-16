@@ -26,6 +26,8 @@
 #include <QtNetwork/QNetworkAccessManager>
 #include <QUrl>
 
+#define AUTH_KEY "78b9d09661da64f0bc6c146c524bae4a"
+
 class Downloader : public QObject{
 	Q_OBJECT
 public:
@@ -34,6 +36,7 @@ public:
 private:
 	QString _request;
 	QNetworkAccessManager *manager;
+	void _prepare_image(QString file, QString content_type);
 
 private slots:
 	void _requestFinished(QNetworkReply *reply);

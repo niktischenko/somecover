@@ -30,6 +30,13 @@ public:
 	const bool operator ==(const Entry e) {
 		return (Artist.toLower() == e.Artist.toLower() && Album.toLower() == e.Album.toLower());
 	}
+	Entry(const Entry &e) {
+		Artist = e.Artist;
+		Album = e.Album;
+	}
+	Entry() {
+		Artist = Album = "";
+	}
 };
 
 #endif // ENTRY_H

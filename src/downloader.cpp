@@ -22,16 +22,18 @@
 #include <QUrl>
 #include <QFile>
 #include <QDebug>
+#include <QImageReader>
+#include <QImageWriter>
 
 Downloader::Downloader() : QObject (0) {
-	_request = "http://someplayer.some-body.ru/cover.php?artist=%1&album=%2";
+	_request = "http://someplayer.some-body.ru/cover.php?artist=%1&album=%2&auth=%3";
 	manager = new QNetworkAccessManager(this);
 	connect(manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(_requestFinished(QNetworkReply*)));
 }
 
 void Downloader::download(Entry entry) {
 //	qWarning() << "requested for downloading: "<< entry.Artist << entry.Album;
-	QString request = _request.arg(entry.Artist).arg(entry.Album);
+	QString request = _request.arg(entry.Artist).arg(entry.Album).arg(AUTH_KEY);
 	manager->get(QNetworkRequest(QUrl(request)));
 }
 
@@ -56,6 +58,10 @@ void Downloader::_requestFinished(QNetworkReply *reply) {
 	}
 	coverFile.write(data);
 	coverFile.close();
+	QString content_type = reply->header(QNetworkRequest::ContentTypeHeader).toString();
+//	qWarning() << content_type;
+//	qWarning() << entry.Album << entry.Artist;
+	_prepare_image(file, content_type);
 	QImage image(file);
 	QImage thumb = image.scaled(QSize(80, 80), Qt::KeepAspectRatio);
 	QFile thumbFile (entry.getThumbPath());
@@ -68,4 +74,15 @@ void Downloader::_requestFinished(QNetworkReply *reply) {
 	thumbFile.close();
 	emit downloaded(entry);
 //	qWarning() << "downloaded: "+entry.Album+" ("+entry.Artist+")";
+}
+
+
+void Downloader::_prepare_image(QString file, QString content_type) {
+	QString format = content_type.replace("image/", "");
+//	qWarning() << format;
+	QImageReader reader(file, format.toAscii());
+	QImage image = reader.read();
+	image = image.scaled(QSize(400, 400), Qt::KeepAspectRatio);
+	QImageWriter writer(file, "jpeg");
+	writer.write(image);
 }
