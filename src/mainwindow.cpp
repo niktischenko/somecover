@@ -74,6 +74,7 @@ void MainWindow::_map_entries_to_model() {
 }
 
 void MainWindow::_download() {
+	_total_to_download = 0;
 	foreach (Entry entry, _entries) {
 		QFile file (entry.getCoverPath());
 		if (!file.exists()) {

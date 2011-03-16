@@ -43,6 +43,10 @@ QList<Entry> TrackerBackend::getEntries() {
 		Entry entry;
 		entry.Artist = pair.at(1);
 		entry.Album = pair.at(0);
+		entry.Artist.replace("&", "");
+		entry.Album.replace("&", "");
+		entry.Album = entry.Album.trimmed();
+		entry.Artist = entry.Artist.trimmed();
 		if (!entry.Album.isEmpty() && !entry.Artist.isEmpty()) {
 			if (!entries.contains(entry)) {
 				entries.append(entry);
