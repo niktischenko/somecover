@@ -1,0 +1,7 @@
+somecover (1.1-1) unstable; urgency=low
+
+  * Fixed problem with high proxy loading (now image processing moved to this program)
+  * Minor bugfixes
+
+ -- Nikolay Tischenko <niktischenko@gmail.com>  Sat, 12 Mar 2011 23:58:42 +0600
+
