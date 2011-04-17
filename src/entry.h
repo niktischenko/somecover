@@ -27,6 +27,7 @@ public:
 	QString Album;
 	QString getCoverPath();
 	QString getThumbPath();
+	QString getMediaArtLocalPath();
 	const bool operator ==(const Entry e) {
 		return (Artist.toLower() == e.Artist.toLower() && Album.toLower() == e.Album.toLower());
 	}

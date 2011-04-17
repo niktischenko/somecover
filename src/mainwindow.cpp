@@ -99,7 +99,7 @@ void MainWindow::_downloaded(Entry entry) {
 }
 
 void MainWindow::_failed(Entry entry) {
-//	qWarning() << "FAILED: " << entry.Album << entry.Artist;
+	qWarning() << "FAILED: " << entry.Album << entry.Artist;
 	ui->progressBar->setValue(ui->progressBar->value()+1);
 	if (ui->progressBar->value() == _total_to_download) {
 		ui->progressBar->hide();

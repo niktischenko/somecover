@@ -70,6 +70,14 @@ void Downloader::_requestFinished(QNetworkReply *reply) {
 //		qWarning() << "failed to save thumb";
 		return;
 	}
+	QFile mediaArtLocalFile (entry.getMediaArtLocalPath());
+	if (!mediaArtLocalFile.open(QFile::WriteOnly)) {
+//		emit failed(entry);
+		qWarning() << "failed to save thumb";
+//		return;
+	}
+	image.save(&mediaArtLocalFile);
+	mediaArtLocalFile.close();
 	thumb.save(&thumbFile);
 	thumbFile.close();
 	emit downloaded(entry);
