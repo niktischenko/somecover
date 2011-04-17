@@ -126,7 +126,7 @@ void MainWindow::_clear_selection() {
 }
 
 void MainWindow::_help() {
-	QMessageBox::information(this, tr("Help"), tr("Album art downloader for SomePlayer and TPlayer. v.1.0\n"
+	QMessageBox::information(this, tr("Help"), tr("Album art downloader for SomePlayer and TPlayer. v.1.2\n"
 				      "Author: Nikolay Tischenko (somebody)\n\n"
 				      "This manager uses LastFM API to get album art for your music.\n"
 				      "It stores downloaded files in ~/.covers directory.\n"

@@ -1,7 +1,6 @@
-somecover (1.0-1) unstable; urgency=low
+somecover (1.2-1) unstable; urgency=low
 
-  * Initial release
-  * LastFM album cover art fetching
+  * Expiremental support for media art local (stock media player)
 
  -- Nikolay Tischenko <niktischenko@gmail.com>  Sat, 12 Mar 2011 23:58:42 +0600
 
