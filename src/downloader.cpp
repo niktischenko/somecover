@@ -26,7 +26,7 @@
 #include <QImageWriter>
 
 Downloader::Downloader() : QObject (0) {
-	_request = "http://someplayer.some-body.ru/cover.php?artist=%1&album=%2&auth=%3";
+	_request = "http://somecover.some-body.ru/cover.php?artist=%1&album=%2&auth=%3";
 	manager = new QNetworkAccessManager(this);
 	connect(manager, SIGNAL(finished(QNetworkReply*)), this, SLOT(_requestFinished(QNetworkReply*)));
 }
