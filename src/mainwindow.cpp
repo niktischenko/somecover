@@ -130,6 +130,7 @@ void MainWindow::_select_all() {
 	int size = _model->rowCount();
 	for (int i = 0; i < size; i++) {
 		ui->tableView->selectionModel()->select(_model->index(i, 0), QItemSelectionModel::Select);
+		ui->tableView->selectionModel()->select(_model->index(i, 1), QItemSelectionModel::Select);
 	}
 }
 
