@@ -10,6 +10,7 @@ Package: somecover
 Architecture: armel
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Album art manager for SomePlayer and TPlayer
+ It uses LastFM API for fetching covers and stores these in ~/.covers dir
 XSBC-Maemo-Display-Name: SomeCover
 XSBC-Bugtracker: http://someplayer.some-body.ru/bt/
 XB-Maemo-Icon-26: iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAKOWlDQ1BQaG90b3Nob3AgSUNDIHBy
