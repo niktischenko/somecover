@@ -42,6 +42,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	connect (_downloader, SIGNAL(failed(Entry)), this, SLOT(_failed(Entry)));
 	connect (ui->cancelButton, SIGNAL(clicked()), this, SLOT(_remove_selected()));
 	connect (ui->actionClear, SIGNAL(triggered()), this, SLOT(_clear_selection()));
+	connect (ui->actionSelectAll, SIGNAL(triggered()), this, SLOT(_select_all()));
 	connect (ui->actionHelp, SIGNAL(triggered()), this, SLOT(_help()));
 	ui->progressBar->hide();
 
@@ -123,6 +124,13 @@ void MainWindow::_remove_selected() {
 
 void MainWindow::_clear_selection() {
 	ui->tableView->selectionModel()->clearSelection();
+}
+
+void MainWindow::_select_all() {
+	int size = _model->rowCount();
+	for (int i = 0; i < size; i++) {
+		ui->tableView->selectionModel()->select(_model->index(i, 0), QItemSelectionModel::Select);
+	}
 }
 
 void MainWindow::_help() {

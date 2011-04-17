@@ -99,6 +99,7 @@
      <string>Tools</string>
     </property>
     <addaction name="actionClear"/>
+    <addaction name="actionSelectAll"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -117,6 +118,11 @@
   <action name="actionHelp">
    <property name="text">
     <string>Help</string>
+   </property>
+  </action>
+  <action name="actionSelectAll">
+   <property name="text">
+    <string>Select all</string>
    </property>
   </action>
  </widget>

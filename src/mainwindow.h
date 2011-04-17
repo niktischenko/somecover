@@ -55,6 +55,7 @@ private slots:
     void _remove_selected();
     void _remove(int row);
     void _clear_selection();
+    void _select_all();
     void _help();
 };
 
