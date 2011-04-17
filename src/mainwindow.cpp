@@ -112,6 +112,7 @@ void MainWindow::_remove(int row) {
 	_model->setItem(row, 0, new QStandardItem(QIcon(":/images/defaultcover.png"), ""));
 	QFile::remove(entry.getCoverPath());
 	QFile::remove(entry.getThumbPath());
+	QFile::remove(entry.getMediaArtLocalPath());
 }
 
 void MainWindow::_remove_selected() {
